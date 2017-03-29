@@ -30,28 +30,30 @@ for i in lists:
     functions.append(newitem)
 
 # search for function name, for each instance
-
+comments = ""
+comment = ""
 combined = "(" + "|".join(functions) + ")"
 
 for function in functions:
-    print("\n"+ function + ":\n")
+    comments = comments + (function) + "\n"
     with open("readme.md") as openfile:
         for line in openfile:
-            #m = re.search("\\b"+re.escape(function)+"\\b", line)
-            #if m:
-                # if comma-nated
-                match = re.search(combined + ", " + "\\b"+re.escape(function)+"\\b",line)
+            comment = ""
+            # if comma-nated
+            match = re.search(combined + ", " + "\\b"+re.escape(function)+"\\b",line)
+            if match==None:
+                match = re.search("\\b"+re.escape(function)+"\\b" + ", " + combined,line)
                 if match==None:
-                    match = re.search("\\b"+re.escape(function)+"\\b" + ", " + combined,line)
-                    if match==None:
-                        # if new line
-                        match = re.search("^" + "\\b"+re.escape(function)+"\\b" + "[,\" :-]*[*]*[,\" :-]*(.*)",line)
+                    # if new line
+                    match = re.search("^" + "\\b"+re.escape(function)+"\\b" + "[,\" :-]*[*]*[,\" :-]*(.*)",line)
+                    if match: 
+                        comment = match.group(1) + "\n"
+                    else:                    
+                        # if not new line or comma-nated
+                        match = re.search("\\b"+re.escape(function)+"\\b" + "[,\" :-]*[*]*[,\" :-]*(.*)",line)
                         if match: 
-                            comment = match.group(1)
-                            print(comment)                
-                        else:                    
-                            # if not new line or comma-nated
-                            match = re.search("\\b"+re.escape(function)+"\\b" + "[,\" :-]*[*]*[,\" :-]*(.*)",line)
-                            if match: 
-                                comment = match.group(1)
-                                print(comment)    
+                            comment = match.group(1) + "\n"
+            comments = comments + comment
+    comments = comments + "\n"
+
+print(comments)
