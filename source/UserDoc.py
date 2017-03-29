@@ -1,6 +1,6 @@
 # INPUT
 
-# [readme.,markdown]
+# [readme.,markdown],
 
 # [
 # string: docandcover.py, # file
@@ -29,9 +29,6 @@ for i in lists:
     newitem = i[1]
     functions.append(newitem)
 
-for i in functions:
-    print(i)
-
 # search for function name, for each instance
 
 combined = "(" + "|".join(functions) + ")"
@@ -40,21 +37,21 @@ for function in functions:
     print("\n"+ function + ":\n")
     with open("readme.md") as openfile:
         for line in openfile:
-            m = re.search(re.escape(function), line)
-            if m:
+            #m = re.search("\\b"+re.escape(function)+"\\b", line)
+            #if m:
                 # if comma-nated
-                match = re.search(combined + ", " + re.escape(function),line)
+                match = re.search(combined + ", " + "\\b"+re.escape(function)+"\\b",line)
                 if match==None:
-                    match = re.search(re.escape(function) + ", " + combined,line)
+                    match = re.search("\\b"+re.escape(function)+"\\b" + ", " + combined,line)
                     if match==None:
                         # if new line
-                        match = re.search("^" + re.escape(function) + "[,\" :-]*[*]*[,\" :-]*(.*)",line)
+                        match = re.search("^" + "\\b"+re.escape(function)+"\\b" + "[,\" :-]*[*]*[,\" :-]*(.*)",line)
                         if match: 
                             comment = match.group(1)
                             print(comment)                
                         else:                    
                             # if not new line or comma-nated
-                            match = re.search(function + "[,\" :-]*[*]*[,\" :-]*(.*)",line)
+                            match = re.search("\\b"+re.escape(function)+"\\b" + "[,\" :-]*[*]*[,\" :-]*(.*)",line)
                             if match: 
                                 comment = match.group(1)
                                 print(comment)    
