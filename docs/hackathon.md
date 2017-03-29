@@ -2,7 +2,7 @@
 
 ### Problem
 
-When launching or reviewing new research software, it is often difficult to determine if all aspects of your developer code has been fully documented, whether that is in-code commenting or discrete developer documentation. 
+When launching or reviewing new research software, it is often difficult to determine if all aspects of your developer code has been fully documented, whether that is in-code commenting or discrete developer documentation. Moreover, there as yet no straightforward metric for software documentation within the Software Assessment Framework, which would improve both is usability and authority.
 
 ### Solution
 
