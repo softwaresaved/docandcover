@@ -47,20 +47,19 @@ def pythonFunctionDetailsGetter(filename, functionDetails):
     string: snippet # documention or comments
     ]
     """
-
+    functionName = ''
+    functionInputs = ''
     #    file = open(filename)
     f = open(filename, 'r')
     lineContainingFunction = ''
     linesIncludingComments  = ''
     for line in f.read().split('\n'):
-        if re.search('def', line):
+        if re.search('\s*def\ ', line):
             lineContainingFunction = line
-
             cleanedLine = re.sub('.*def\ ','', lineContainingFunction)
-            if cleanedLine:
-                functionNameMatch = re.search('([a-zA-Z0-9_-]+)\(', cleanedLine)
-                if functionNameMatch.groups > 1:
-                    functionName = functionNameMatch.group(1)
+            #            if cleanedLine:
+            functionNameMatch = re.search('([a-zA-Z0-9_]+)\(', cleanedLine)
+            functionName = functionNameMatch.group(1)
                 
             functionInputsMatch = re.search('\((.+)\)', cleanedLine)
             if functionInputsMatch:
@@ -71,7 +70,7 @@ def pythonFunctionDetailsGetter(filename, functionDetails):
             linesIncludingComments = ''
         linesIncludingComments += line
 
-        if re.search('\"\"\".*\"\"\"', linesIncludingComments):
+        if re.search('\"\"\".*\"\"\"', linesIncludingComments) and functionName:
             #We are at the end of a comment, process and clean data
      
             functionDetail = [filename, functionName, functionInputs, [], linesIncludingComments]
