@@ -4,26 +4,24 @@ def search_for_files
 
 ## FileLists
 **List all files we think are source code**
-
-*(file,languageType)
-dataStructure: List of lists
-[
-[docandcover.py,python],
-]
+*(file,languageType)*  
+[  
+[docandcover.py,python],  
+]  
 	
  ^2nd string dictionary needed for future proofing!
  
 ## FunctionDetails
 **List of functions/classes**
 
-*(file, functionName, parameters, returns, doc snippet)*
-[
-string: docandcover.py, # file
-string: fileSearch, # function name
-string: [ filename, filetype], # list of inputs
-string: [ my_output], # list of outputs
-string: snippet # documention or comments
-]
+*(file, functionName, parameters, returns, doc snippet)*    
+[  
+string: docandcover.py, # file  
+string: fileSearch, # function name  
+string: [ filename, filetype], # list of inputs  
+string: [ my_output], # list of outputs  
+string: snippet # documention or comments  
+]  
 
 ## DocSnippet
 **Parse docSnippet**
