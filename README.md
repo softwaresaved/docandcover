@@ -16,6 +16,6 @@ Additionally it is hoped to integreate this into the software assesment framewor
 
 ## Results
 
-On completion, *Doc and Cover* will output
+On completion, *Doc and Cover* will output a score of your current in-code documation level.
 
 If you have included a Readme.md with user documentation, it will also output a summary named **externaldocresults** which will list all identified functions and any documentation we have found for these in your readme file.
