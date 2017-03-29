@@ -1,3 +1,7 @@
+# Doc and Cover
+Developed and presented by [Robin Long](https://www.software.ac.uk/fellows/robin-long), [Neil Chue Hong](https://www.software.ac.uk/neil-chue-hong), and [Melodee Beals](https://www.software.ac.uk/melodee-helene-beals)
+
+
 ## Novelty, creativity, coolness and/or usefulness
 
 ### Problem
