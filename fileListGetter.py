@@ -11,7 +11,7 @@ def fileListGetter(directory):
         for filename in files:
             file_extention = filename.split(".")[-1]
             languageType = getLanguageType(file_extention)
-
+            filename =  os.path.join(root, filename)
             fileLists.append([filename, languageType])
 
     return fileLists
