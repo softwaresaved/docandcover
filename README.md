@@ -7,6 +7,11 @@
 
 ## Use
 
+There are a few ways that we intend for docandcover to be used.   The first is that a user can download the code and run it against any directory that contains code they have written.  This would allow you to check that they have documented all their code. 
+
+Another option is so that you can check someone elses code.  You would give docandcover a github url, and it would clone the remote repo and check it for code coverage.
+
+Additionally it is hoped to integreate this into the software assesment framework. 
 
 
 ## Results
